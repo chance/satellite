@@ -1,0 +1,149 @@
+//  Home  //////////////////////////////////////
+
+#home {
+	#header {
+		border: none;
+	}
+	
+	#content {
+		padding: 14px 0 0;
+	
+		footer {
+			overflow: hidden;
+			margin-top: -42px;
+			margin-bottom: 14px;
+			
+			h3 {
+				@include header(12px);
+				float: left;
+				margin-top: 2px;
+			}
+			
+			a {
+				float: right;
+				position: relative;
+				z-index: 999;
+				margin-top: -1px;
+				font-size: 15px;
+				color: $color_text;
+				border-bottom: 1px solid $color_border;
+				
+				&:hover {
+					color: $color_link_hover;
+					border-color: $color_link_hover;
+				}
+			}
+		}
+	}
+}
+
+#home_gallery {
+	position: relative;
+	margin-bottom: 46px;
+	clear: both;	
+	
+	ul {
+		margin: 0;
+		line-height: 0;
+		
+		li {
+			position: relative;
+			text-align: center;
+			line-height: 0;
+			margin-bottom: 0;
+			background: darken($color_background, 3%);
+		
+			img {
+				cursor: pointer;
+			}		
+		}			
+	}
+	
+	.flex-viewport {
+		min-height: 400px;
+	}		
+	
+	.slides li a {
+		position: absolute;
+		line-height: 0;
+		margin-bottom: 0;
+		text-align: left;
+		display: block;
+		z-index: 999;
+		left: 30px;
+		bottom: 30px;
+		width: 180px;
+		background: rgba(0,0,0, .75);
+		
+		& > span {
+			display: block;
+			padding: 10px 15px 0;		
+		}
+	
+		h2 {
+			display: inline;
+			color: #fff;
+			line-height: 1.4em;
+			margin: 0;
+			font-size: 19px;
+			border-bottom: 1px solid #fff;
+		}
+		
+		h3 {
+			display: block;
+			margin-top: 80px;
+			width: 100%;
+			padding: 8px 0 12px;
+			margin-bottom: 0;
+			opacity: .5;
+			color: #fff;
+			border-top: 1px solid #fff;
+			@include header(12px);
+			
+			.raq {
+				font-style: normal;
+			  @include raquo(-3px, 26px, #ffffff);
+			}
+		}
+		
+		&:hover {
+			background: #000;
+			
+			h3 {
+				opacity: 1;
+			}
+		}
+	}
+}
+	
+#home_gallery .flex-control-nav { 
+	width: 100%; 
+	position: relative; 
+	bottom: -25px; 
+	
+	li {
+		margin: 3px !important; 
+		display: block; *display: block; 
+		display: inline-block;		
+	
+		a {
+			cursor: pointer;
+			width: 6px; 
+			height: 6px; 
+			display: block; 
+			border: 1px solid #8e8e93; 
+			opacity: 1;
+			border-radius: 6px;
+			box-shadow: none;
+			background: transparent;		
+		
+			&:hover,
+			&.flex-active {
+				cursor: default; 
+				border: 1px solid #111;
+				background: #111;
+			}
+		}
+	}
+}
+

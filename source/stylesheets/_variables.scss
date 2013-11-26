@@ -1,0 +1,9 @@
+$color_text: {{ theme.color_text }};
+$color_text_secondary: {{ theme.color_text_secondary }};
+$color_link_hover: {{ theme.color_link_hover }};
+
+$color_background: {{ theme.color_background }};
+$color_border: {{ theme.color_border }};
+
+$font_serif: "{{ theme.text_font }}";
+$font_sans: "{{ theme.header_font }}";

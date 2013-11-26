@@ -1,0 +1,55 @@
+{% if contact.sent %}
+
+<section id="page_body" class="thank_you">
+	<header>
+		<h1>Thanks!</h1>
+	</header>
+	<p>Your message has been sent and we will try to respond within 24 business hours.</p>				
+</section>
+
+{% else %}
+
+<aside id="page_side">
+	<p>Send us a note if you have a question or just want to say something nice! Give us a little time to reply. In the meantime, find us elsewhere.</p>			
+	<ul>
+		<li><a href="">Twitter <span class="raq">&raquo;</span></a>
+		<li><a href="">Facebook <span class="raq">&raquo;</span></a>
+		<li><a href="">Tumblr <span class="raq">&raquo;</span></a>					
+	</ul>
+</aside>
+<section id="page_body">
+	<header>
+		<h1>Contact</h1>
+	</header>				
+	<form id="contact_form" method="post" accept-charset="utf8" action="/contact">
+    <ul>
+      <li>
+        <label>Name</label>
+        {{ contact | contact_input: 'name' }}
+      </li>
+      <li>
+        <label>Email</label>
+        {{ contact | contact_input: 'email' }}                 
+      </li>
+      <li>
+        <label>Subject</label>
+        {{ contact | contact_input: 'subject' }}
+      </li>
+      <li>
+        <label>Message</label>
+        {{ contact | contact_input: 'message' }}
+      </li>
+      <li id="captcha_img">
+        <label title="Enter the letters from the image">Captcha</label>
+        {{ contact | contact_input: 'captcha' }}       		        
+        <div id="captcha_phrase">{{ contact.captcha }}</div>                
+      </li>
+    </ul>
+    
+    <input name="_utf8" type="hidden" value="&#x2713;" />
+    <button id="contact_button" type="submit" name="submit" class="button"><span>Send Message<em class="raq">&raquo;</em></span></button>            
+  </form>
+</section>
+
+{% endif %}
+

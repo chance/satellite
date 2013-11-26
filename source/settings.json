@@ -1,0 +1,127 @@
+{
+  "name": "Satellite",
+  "version": "0.0.1",
+  "images": [
+    {
+      "variable": "logo",
+      "label": "Logo",
+      "description": "Adds your logo to the header"
+    },
+    {
+      "variable": "background_image",
+      "label": "Background Image",
+      "description": "Adds a repeating background image"
+    }
+  ],
+  "fonts": [
+    {
+      "variable": "header_font",
+      "label": "Header Font",
+      "default": "Raleway"
+    },
+    {
+      "variable": "text_font",
+      "label": "Text Font",
+      "default": "Georgia"
+    }
+  ],
+  "colors": [
+    {
+      "variable": "color_background",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "color_border",
+      "label": "Border Color",
+      "default": "#777777"
+    },    
+    {
+      "variable": "color_text",
+      "label": "Text",
+      "default": "#111111"
+    },
+    {
+      "variable": "color_text_secondary",
+      "label": "Text Accent",
+      "default": "#8e8e93"
+    },
+    {
+      "variable": "color_link_hover",
+      "label": "Links",
+      "default": "#F72E2A"
+    }    
+  ],
+  "options": [
+    {
+      "variable": "featured_order",
+      "label": "Featured products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "newest",
+      "description": "The order of products in the Homepage slideshow"
+    },  
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "type": "select",
+      "options": "1..100",
+      "default": 12,
+      "description": "The number of products shown per page"
+    },  
+    {
+      "variable": "product_list_layout",
+      "label": "Product List Layout",
+      "type": "select",
+      "options": [["Square", "square"], ["Mixed", "mixed"], ["Masonry", "masonry"]],
+      "default": "mixed",
+      "description": "The arrangement of your products on the Products pages"
+    },
+		{
+      "variable": "banner_message",
+      "label": "Banner message",
+      "type": "text",
+      "description": "Shows promotional banner on products page"
+    },     
+    {
+      "variable": "show_inventory_bars",
+      "label": "Show inventory bars",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a product's inventory amounts (when using inventory tracking)",
+      "requires": "inventory"
+    },
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a search field"
+    },
+    {
+      "variable": "show_share_buttons",
+      "label": "Show Share Buttons",
+      "type": "boolean",
+      "default": true,
+      "description": "Shows share buttons on product detail pages"
+    },
+    {
+      "variable": "twitter_link",
+      "label": "Twitter Link",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "facebook_link",
+      "label": "Facebook Link",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel"
+    },
+    {
+      "variable": "instagram_link",
+      "label": "Instagram Link",
+      "type": "text",
+      "description": "Ex: http://instagram.com/bigcartel"
+    }   
+  ]
+}

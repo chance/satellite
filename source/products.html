@@ -1,0 +1,144 @@
+{% paginate products from products.current by theme.products_per_page %}
+{% if products != blank %}
+
+{% if theme.banner_message != blank %}
+<div id="banner">
+	<p>{{ theme.banner_message }}</p>
+  <a href="#" class="dismiss" title="Close Banner">Close Banner</a>
+</div>
+{% endif %}
+
+<section id="filters">
+	{% if categories.active != blank %}
+	<div id="categories">
+		<a href="#"  data="category_list" title="Category">
+			<h3>Category</h3>
+			{% if page.full_url contains 'category' %}
+			<span>{{ page.name }}</span>
+			{% else %}
+			<span>All Products</span>
+			{% endif %}
+		</a>
+	</div>
+	{% endif %}
+	
+	{% if artists.active != blank %}
+	<div id="artists">
+		<a href="#" data="artist_list" title="Category">
+			<h3>Artists</h3>
+			{% if page.full_url contains 'artist' %}
+			<span>{{ page.name }}</span>
+			{% else %}
+			<span>All Artists</span>
+			{% endif %}
+		</a>
+	</div>
+	{% endif %}
+	
+	{% if categories.active != blank %}
+	<ul id="category_list" class="list">
+		<li {% if page.full_url contains '/products' %}class="selected"{% endif %}><a href="/products">All Products</a></li>
+		{% for category in categories.active %}
+    <li class="{% if page.full_url contains category.url %}selected{% endif %}">{{ category | link_to }}</li>
+		{% endfor %}					
+	</ul>
+	{% endif %}
+	
+	{% if artists.active != blank %}
+	<ul id="artist_list" class="list">
+		<li {% if page.full_url contains '/products' %}class="selected"{% endif %}><a href="/products">All Products</a></li>	
+		{% for artist in artists.active %}
+   <li class="page {% if page.full_url contains artist.url %}selected{% endif %}">{{ artist | link_to }}</li>
+		{% endfor %}			
+	</ul>
+	{% endif %}
+	
+	{% if theme.show_search %}						
+	<form id="search-form" name="search" action="/products" method="get">
+		<a href="#search-form" style="display: inline;">Search</a>
+		<input id="search-input" name="search" type="text">
+	</form>
+  {% endif %}
+</section>
+
+<section id="products" class="grid {{ theme.product_list_layout }}">
+	{% for product in products %}
+	<article class="product {{ product.css_class }}">
+		<a href="{{ product.url }}" title="View {{ product.name }}">
+			<div class="product_image">					
+				<img alt="Image of {{ product.name | escape }}" src="{{ product.image | product_image_url | constrain: '600'}}">
+			</div>					
+			<header>
+				<h2>{{ product.name | truncate: 45 }}</h3>
+				<h3>{{ product.default_price | money_with_sign }}</h3>
+				{% if product.on_sale %} 
+					<h4>On Sale!</h4>
+				{% endif %}
+				{% case product.status %}
+	        {% when 'sold-out' %}
+	    	  <h4>Sold Out!</h4>
+	        {% when 'coming-soon' %}
+	    	  <h4>Coming Soon!</h4>
+        {% endcase %}
+			</header>
+		</a>
+	</article>
+	{% endfor %}
+</section>
+
+{% if paginate.previous.is_link or paginate.next.is_link %}
+<nav id="pagination">
+	<ul>
+		{% if paginate.previous %}
+			{% if paginate.previous.is_link %} 
+			<li id="previous_page"><a href="{{ paginate.previous.url }}" title="Previous page of products">Previous</a></li>		
+			{% else %}
+			<li id="previous_page"><span>Previous</span></li>
+			{% endif %}	
+		{% endif %}			
+		
+		{% for part in paginate.parts %}
+			{% if part.is_link %}
+				<li><a href="{{ part.url }}" title="Page {{ part.title }}">{{ part.title }}</a></li>
+			{% else %}				
+				{% if page.full_url contains part.title %}
+				<li class="selected"><a href="{{ part.url }}" title="Page {{ part.title }}">{{ part.title }}</a></li>
+				{% else %}
+				<li><span class="gap">{{ part.title }}</span></li>
+				{% endif %}
+			{% endif %}
+		{% endfor %}	
+
+		{% if paginate.next %}
+			{% if paginate.next.is_link %} 
+			<li id="next_page"><a href="{{ paginate.next.url }}" title="Next page of products">Next</a></li>
+			{% else %}
+			<li id="next_page"><span>Next</span></li>
+			{% endif %}
+		{% endif %}
+	</ul>
+</nav>
+{% endif %}
+
+{% else %}
+
+<section id="filters">	
+	{% if theme.show_search %}						
+	<form id="search-form" name="search" action="/products" method="get">
+		<a href="#search-form" style="display: inline;">Search</a>
+		<input id="search-input" name="search" type="text">
+	</form>
+  {% endif %}
+</section>
+
+<section id="page_body" class="no_results">
+	<header>
+		<h1>No products found</h1>
+	</header>
+  <p>Opps! We didn&#8217;t find anything matching that search.</p>
+  <a class="button" href="/products"><span>Keep shopping <em class="raq">&raquo;</em></span></a>			
+</section>
+
+{% endif %}
+{% endpaginate %}
+

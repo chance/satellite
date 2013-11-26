@@ -1,0 +1,37 @@
+@mixin header($size: 10px) {
+	font: {
+		family: $font_sans;
+		size: $size;
+	}
+	text-transform: uppercase;
+	letter-spacing: 2px;	
+}
+
+@mixin raquo($top, $font_size, $color) {
+	float: right;
+	position: relative;
+	top: $top;
+	font-size: $font_size;
+	font-family: $font_serif;
+	font-weight: normal;
+	color: $color;
+}
+	
+@mixin rounded($radius) {
+ -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+         border-radius: $radius;
+}
+
+@mixin shadow($x, $y, $blur, $color) {
+ -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+         box-shadow: $x $y $blur $color;
+}	
+
+@mixin transition($property: all, $duration: .3s, $easing: ease-in) {
+ -webkit-transition: $property $duration $easing;
+	  -moz-transition: $property $duration $easing;
+	    -o-transition: $property $duration $easing;
+	       transition: $property $duration $easing;
+}

@@ -1,0 +1,31 @@
+{% get products from products.all order:theme.featured_order %}
+	{% if products != blank %}  
+		<section id="home_gallery">
+			<ul class="slides">
+				{% for product in products limit: 4 %}
+				<li>
+					<img src="{{ product.image | product_image_url | constrain: '2000'}}" alt="Image of {{ product.name | escape }}">
+					<a href="{{ product.url }}" title="View {{ product.name | escape }}" class="flex-caption">
+						<span>
+							<h2><span>{{ product.name }}</span></h2>
+							<h3 class="see_more">See More <em class="raq">&raquo;</em></h3>
+						</span>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</section>
+		<footer>
+			<h3>Featured</h3>
+			<a href="/products" title="Shop All Products">Shop All</a>		
+		</footer>
+	{% else %}
+		<section id="page_body" class="no_results">
+			<header>
+				<h1>No products found</h1>
+			</header>
+		  <p>Opps! We didn&#8217;t find anything matching that search.</p>
+		  <a class="button" href="/products"><span>Keep shopping <em class="raq">&raquo;</em></span></a>			
+		</section>	
+	{% endif %}							
+{% endget %}

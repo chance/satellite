@@ -1,0 +1,310 @@
+//  Basic  ////////////////////////////////////////////
+
+html, body {
+	width: 100%;
+  height: 100%;	
+  }
+
+body {
+	font-size: 13px;
+	font-family: $font_serif;
+	text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background: $color_background;
+	{% if theme.background_image != blank %}
+  background-image: url({{ theme.background_image.url }});
+  background-repeat: repeat;
+	{% endif %}  
+  }	
+
+p, blockquote, ul, ol, dl {
+  margin-bottom: 1.2em;	
+  line-height: 1.5em;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;	
+  line-height: 1em;
+  }
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+a,
+a:link,
+a:visited {
+  color: $color_link_hover;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer; 	  
+}
+
+a:hover,
+a:active {
+  color: grey ;    	
+}
+
+a img {
+  display: block;
+  text-decoration: none;
+  border: none;
+}
+
+img {
+  border: none;
+}	
+	
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+}
+
+input {
+	-webkit-font-smoothing: antialiased;
+}
+  
+button,
+.button,
+a.button {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+	background: transparent;
+	outline: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	display: block;
+	margin: 22px 0 0 0;
+	padding: 0;
+	@include header(13px);
+	text-align: left;	
+	border: 1px solid $color_border;
+	color: $color_text;
+
+	span {
+		display: block;
+		padding: 15px;
+	
+		span {
+			display: inline;
+			padding: 0;
+		}
+	}	
+	
+	&:hover {
+		border-color: $color_link_hover;
+		color: $color_link_hover;
+		
+		em.raq {
+			color: $color_link_hover;
+		}
+	}
+	
+	em.raq {
+		@include raquo(-3px, 26px, $color_text_secondary);
+		font-style: normal;
+		color: $color_text;
+	}		
+}
+
+/* Big Cartel Badge */
+
+#badge {
+  width: 100%;
+  margin: 18px 0 20px;  
+	
+	a {
+  display: block;
+  margin: 0 auto;
+  width: 79px;
+  height: 23px;
+  border: none !important;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+  background: url({{ 'badge.png' | theme_image_url }}) no-repeat;
+  }
+}
+
+  	
+  
+//  Structure  //////////////////////////////////////
+
+#header,
+#content,
+#footer {
+	overflow: hidden;
+	width: 100%;
+}
+	
+.structure {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+}
+	
+#header {
+	min-height: 122px;
+	border-bottom: 1px solid $color_border;
+}
+	
+#content {
+	padding: 44px 0 0;
+}	
+	
+#footer {
+	overflow: hidden;
+	padding: 44px 0 34px;	
+	border-top: 1px solid $color_border;
+}	
+
+
+//  Header  //////////////////////////////////////
+
+#branding {
+	float: left;	
+	width: 65%;
+	margin-bottom: 20px;
+	
+	 a {
+		display: block;
+		margin: 59px 0 0;
+		line-height: 1.2em;
+		font: {
+			family: $font_sans;
+			size: 34px;
+		}
+		color: $color_text;
+		text-transform: uppercase;
+		letter-spacing: 5px;		
+							
+		&.wrap {
+			font-size: 32px;
+			margin-top: 59px;
+			letter-spacing: 4px;
+		}
+		
+		h1 {
+			margin-bottom: 0;
+			line-height: 1.2em;
+		}		
+	}
+}
+	
+
+.navigation {
+	float: right;
+	width: 31.2%;
+	margin: 40px 0 20px;
+	@include header;
+	
+	li {
+		float: left;
+		width: 50%;
+	}
+	
+	a {
+		width: 100%;
+		display: block;
+		padding: 3px 0;
+		color: #111;		
+	
+		&:hover {
+			color: $color_text_secondary;		
+		}
+	}
+	
+	& .selected a {
+		color: $color_text_secondary;	
+	}
+}
+
+#header {
+	&.short {
+
+		#branding a {
+			margin-top: 57px;	
+		}
+		
+		.navigation {
+			margin-top: 55px;
+		}
+	}
+	
+	&.tall {
+
+		#branding a {
+			margin-top: 50px;	
+		}
+		
+		.navigation {
+			margin-top: 26px;
+		}
+	
+		#home & + #content {
+			padding-top: 6px;
+		}
+	}	
+}
+
+
+//  Footer  //////////////////////////////////////
+
+#footer {
+	
+	a {
+		color: #111;
+		border-bottom: 1px solid $color_border;
+		
+		&:hover {
+			color: $color_link_hover;
+			border-color: $color_link_hover;
+		}
+	}
+
+	h4 {
+		margin-bottom: .6em;
+		@include header;		
+	}
+	
+	#copyright,
+	#elsewhere,
+	.navigtion {
+		float: left;
+		width: 31.1%;
+		margin: 0 3.4% 0 0;			
+	}
+	
+	#copyright {
+		a {
+			margin-left: 3px;
+		}
+	}
+	
+	.navigation {
+		margin: -5px 0 0 0;
+	
+		a {
+			font-style: normal;
+			border: none;
+
+			&:hover {
+				color: $color_text_secondary;
+			}			
+		}
+	}
+}
+
+#elsewhere {
+	
+	li {
+		display: inline-block;
+		padding: 0 3px;
+	}
+}

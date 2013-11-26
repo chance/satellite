@@ -1,0 +1,124 @@
+//  Custom  //////////////////////////////////////
+
+.custom {
+	#content {
+		margin: 69px 0 125px;	
+	}
+}
+
+
+#page_side {
+	float: left;
+	width: 31.2%;
+}
+
+#page_body  {
+	float: right;
+	width: 65.6%;
+	font-size: 18px;	
+
+	p, blockquote, ul, ol, dl {
+		line-height: 1.6em;
+	}	
+	
+	h1 {
+		font-size: 27px;
+		font-style: italic;
+	}
+	
+	h2 {
+  	margin-top: 1.5em;
+		margin-bottom: .5em;  
+		line-height: 1.4em;
+		font: {
+			size: 22px;
+			weight: bold;
+		}
+  }
+	
+	h3 {
+  	margin-top: 1.5em;  
+		margin-bottom: .7em;  
+		line-height: 1.4em;		
+		font: {
+			size: 20px;
+			weight: bold;
+		}
+  }  
+  
+	h4 {
+	  margin-top: 1.5em;
+	  margin-bottom: .6em;
+		line-height: 1.4em;	  
+		font: {
+			size: 18px;
+			weight: bold;
+		}
+	} 
+	
+	h5 {
+	  margin-top: 1.5em;
+	  margin-bottom: .2em;
+		line-height: 1.4em;	  
+		font: {
+			size: 18px;
+			weight: bold;
+		}    
+	}
+	
+	h6 {
+	  margin-top: 1.5em;
+	  margin-bottom: .2em;
+		line-height: 1.4em;	  
+		font: {
+			size: 16px;
+			weight: bold;
+		} 
+  }
+  
+  ol {
+	  list-style: decimal-leading-zero;
+	  list-style-position: inside;
+  }		
+}
+
+#entries {
+	
+	li {
+		clear: both;
+		margin-top: 80px;
+		border-top: 1px solid $color_border;
+		
+		&:first-child {
+			margin-top: 40px;
+		}
+	
+		& > h2 {
+			font-weight: normal;
+			margin-bottom: .1em;
+			margin-top: 0;
+			padding-top: .5em;
+			line-height: 1.5em;
+			
+			a {
+				color: $color_text;
+				//border-bottom: 1px solid $color_border;
+				
+				&:hover {
+					color: $color_link_hover;
+					border-color: $color_link_hover;
+				}
+			}
+		}
+		
+		img {
+			min-width: 100%;
+		}
+		
+		.blog_date {
+			font-size: 14px;
+			font-style: italic;
+			color: $color_text_secondary;
+		}
+	}
+}
