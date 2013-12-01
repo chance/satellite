@@ -65,8 +65,26 @@
 					<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact" title="Contact Us">Contact</a></li>
 				</ul>
 			</nav>
+			<nav id="mobile_nav">
+				<ul>	
+					<li id="nav_menu"><a href="#">Menu</a></li>
+					<li id="nav_cart" {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart" title="View Cart">Cart ({% if cart.total > 0 %}{{ cart.total | money_with_sign }}{% else %}{{ store.currency.sign }}0{% endif %})</a></li>						
+				</ul>				
+			</nav>
 		</div>
-	</div>  
+	</div>
+	<nav class="navigation mobile">
+		<ul>	
+			<li id="close"><a href="#" title="Home">Close</a></li>
+			<li><a href="/" title="Home">Home</a></li>
+			<li {% if page.full_url contains '/products' %}class="selected"{% endif %}><a href="/products" title="Shop Products">Products</a></li>
+			<li {% if page.full_url contains '/cart' %}class="selected"{% endif %}><a href="/cart" title="View Cart">Cart ({% if cart.total > 0 %}{{ cart.total | money_with_sign }}{% else %}{{ store.currency.sign }}0{% endif %})</a></li>						
+			{% for page in pages.all limit: 5 %}
+      <li {% if page.full_url contains page.url %}class="selected"{% endif %}>{{ page | link_to }}</li>
+      {% endfor %}
+			<li {% if page.full_url contains '/contact' %}class="selected"{% endif %}><a href="/contact" title="Contact Us">Contact</a></li>
+		</ul>
+	</nav>	  
 	<div id="content">
 		<div class="structure">
 			{% if errors != blank %}

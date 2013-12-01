@@ -5,13 +5,13 @@ options = {}
 # Use data from any store to make sure your theme looks great with all sorts of products, pages,
 # categories, and more. Just give us the subdomain. Default is "dugway" for dugway.bigcartel.com.
 #  options[:store] = 'askalice'
-#   options[:store] = 'thisispaper'
-#  options[:store] = 'windandwillowhome'
+#  options[:store] = 'thisispaper'
+   options[:store] = 'windandwillowhome'
 #  options[:store] = 'lunatheme'
 #  options[:store] = 'rothirsch'
 #  options[:store] = 'woodandmetal'
 #  options[:store] = 'pelledesigns'
-	 options[:store] = 'unmarkedmx'
+#	 options[:store] = 'unmarkedmx'
 #  options[:store] = 'dahlhausart'
 #  options[:store] = 'ohmykids'
 #  options[:store] = 'herriottgrace'
@@ -30,7 +30,7 @@ options[:customization] = {
 #   :color_text_secondary => '#CCCCCC',
 #   :color_link_hover => '#CCCCCC',
 #   :show_search => true,
-    :product_list_layout => 'mixed',
+    :product_list_layout => 'masonry',
     :banner_message => 'Fall Sale! Use code FALLSALE during checkout to get 10% off!',
     :twitter_link  => 'http://twitter.com/bigcartel',
     :facebook_link => 'http://facebook.com/bigcartel',

@@ -196,7 +196,9 @@ a.button {
 		}		
 	}
 }
-	
+.navigation.mobile {
+	display: none;	
+}
 
 .navigation {
 	float: right;
@@ -223,6 +225,10 @@ a.button {
 	& .selected a {
 		color: $color_text_secondary;	
 	}
+}
+
+#mobile_nav {
+	display: none;
 }
 
 #header {
@@ -275,7 +281,7 @@ a.button {
 	
 	#copyright,
 	#elsewhere,
-	.navigtion {
+	.navigtaion {
 		float: left;
 		width: 31.1%;
 		margin: 0 3.4% 0 0;			

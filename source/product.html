@@ -4,6 +4,13 @@
 </div>
 {% endif %}
 <article id="product_id">
+	<section id="product_images">
+		<ul class="slides">
+			{% for image in product.images %}
+			<li data-thumb="{{ image | product_image_url | constrain: '100'}}"><img src="{{ image | product_image_url | constrain: '2000'}}" alt="Image of {{ product.name | escape }}" /></li>
+			{% endfor %}
+		</ul>
+	</section>	
 	<section id="product_info">
 		<header>
 			<h1>{{ product.name }}</h1>
@@ -107,14 +114,7 @@
       {% when 'coming-soon' %}
       	<a class="button add_to_cart coming_soon" title="Coming soon"><span>Coming Soon <em>{{ product.default_price | money_with_sign }}</em></span></a>      	
     {% endcase %}		
-	</section>			
-	<section id="product_images">
-		<ul class="slides">
-			{% for image in product.images %}
-			<li data-thumb="{{ image | product_image_url | constrain: '100'}}"><img src="{{ image | product_image_url | constrain: '2000'}}" alt="Image of {{ product.name | escape }}" /></li>
-			{% endfor %}
-		</ul>
-	</section>			
+	</section>					
 </article>
 
 {% if product.next_product != blank %}

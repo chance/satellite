@@ -35,3 +35,12 @@
 	    -o-transition: $property $duration $easing;
 	       transition: $property $duration $easing;
 }
+
+@mixin responsive($width) {
+	@if $width == large-screens {
+	  @media only screen and (max-width: $width-large)  { @content; }}
+	@else if $width == medium-screens {
+	  @media only screen and (max-width: $width-medium) { @content; }}
+	@else if $width == small-screens {
+	  @media only screen and (max-width: $width-small)  { @content; }}
+}
