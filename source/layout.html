@@ -41,7 +41,7 @@
   {{ head_content }}
 </head>
 
-<body id="{{ page.permalink }}" class="{{ page.category }} {% if page.name == "Contact" or page.url contains "success" %}custom{% endif %}">
+<body id="{% if page.permalink == 'products' %}products_page{% else %}{{ page.permalink }}{% endif %}" class="{{ page.category }} {% if page.name == "Contact" or page.url contains "success" %}custom{% endif %}">
 	<div id="header" {% if pages.all.size < 2 %}class="short" {% elsif pages.all.size > 2 %}class="tall"{% endif %}>
 		<div class="structure">
 			<header id="branding">

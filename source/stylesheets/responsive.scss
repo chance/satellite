@@ -30,7 +30,7 @@
 
 			 a {
 				display: block;
-				margin: 45px 0 !important;
+				margin: 45px 0;
 				font: {
 					size: 34px;
 				}
@@ -38,7 +38,7 @@
 									
 				&.wrap {
 					font-size: 28px;
-					margin-top: inherit;
+					margin-top: 50px;
 				}
 				
 				h1 {
@@ -81,7 +81,11 @@
 		&.short {
 	
 			#branding a {
-				margin-top: inherit;	
+				 margin-top: 45px;	
+				 
+				 &.wrap {
+					 margin-top: 50px;
+				 }
 			}
 			
 			.navigation {
@@ -92,7 +96,7 @@
 		&.tall {
 	
 			#branding a {
-				margin-top: inherit;	
+				// margin-top: inherit;	
 			}
 			
 			.navigation {
@@ -106,36 +110,38 @@
 	}
 	
 	.navigation.mobile {
-		display: block;
-		visibility: hidden;
-		opacity: 0;
-		z-index: 9998;
-		overflow: scroll;
-		float: none;
-		width: 100%;
-		margin: 0;		
-		padding-top: 5%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(0,0,0, .9);
-		text-align: left;
-		@include header;
-		 -webkit-transition: all .3s ease-in; 
-		 -webkit-transform: scale(1.05); 
+			box-sizing: border-box;	
+			visibility: hidden;
+			overflow: hidden;			
+			opacity: 0;
+			z-index: 9998;
+			float: none;
+			margin: 0;	
+			padding: 0;	
+			padding-top: 5%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0, .9);
+			text-align: left;
+			@include header;
+			-webkit-transition: all .3s ease-in; 
+			-webkit-transform: scale(1.05); 
 		 
-		 &.selected {
-		 	visibility: visible;
-			 z-index: 9998;
-			 opacity: 1;
-			 -webkit-transition: all .4s ease-out;
-			 -webkit-transform: scale(1); 	
-		 }
+		&.selected {
+			display: block;
+			visibility: visible;
+			z-index: 9998;
+			opacity: 1;
+			-webkit-transition: all .4s ease-out;
+			-webkit-transform: scale(1); 	
+		}
 		 
 		ul {
 			height: 100%;
+			padding: 0;
 			margin-bottom: 60px;
 			overflow: scroll;
 		} 
@@ -152,6 +158,7 @@
 				text-indent: 24px;
 				
 				a {
+					box-sizing: border-box;
 					padding: 24px 0 40px;				
 					color: #8e8e93;
 					letter-spacing: 2px;
@@ -163,6 +170,7 @@
 		}
 		
 		a {
+			box-sizing: border-box;		
 			display: block;
 			color: #ffffff;
 			width: auto;
@@ -251,17 +259,46 @@
 		}
 	}
 	
-	#products.grid {
-		overflow: hidden;
-		margin-left: -3.4%;	
-		margin-bottom: 30px;
+	#products_page {
+				
+		#filters {		
+			margin-bottom: 0; 
+			min-height: 25px;
+			
+			#categories {
+				width: 51.7%;
+			}
+			
+			#artists {
+				width: 48%;
+			}
 		
-		.product {
-			float: left;
-			width: 46.7%; //30.2%
-			margin: 0 0 31px 3.3%;	
+			.list {
+				margin: 0 0 30px -3.4%;		
+				
+				li {
+					float: left;
+					width: 46.7%;
+					margin: 0 0 0 3.3%;			
+				}
+			}
 		}
+		
+		#products.grid {
+			overflow: hidden;
+			margin-left: -3.4%;	
+			margin-bottom: 30px;
+			
+			.product {
+				width: 46.7%; 
+			}	
+		}
+		
+		#products.masonry + #pagination {
+			margin-top: -60px;	
+		}					
 	}
+	
 
 	#product {
 		
@@ -365,8 +402,11 @@
 			}
 		}
 		
-		.add_to_cart {
-			max-width: 240px;
+		#product_inventory {
+
+			h3 {
+				font-size: 13px;
+			}	
 		}
 		
 		#product_images {
@@ -401,7 +441,7 @@
 					width: 6px; 
 					height: 6px; 
 					display: block; 
-					border: 1px solid #8e8e93; 
+					border: 1px solid $color_border;
 					opacity: 1;
 					border-radius: 6px;
 					box-shadow: none;
@@ -410,8 +450,8 @@
 					&:hover,
 					&.flex-active {
 						cursor: default; 
-						border: 1px solid #111;
-						background: #111;
+						border: 1px solid $color_border;
+						background: $color_border;
 					}
 				}
 			}
@@ -419,6 +459,26 @@
 		
 		#previous_product {
 			display: none;
+		}
+		
+		#next_product {
+			width: 83.3333%;
+			margin: -28px auto 30px;
+		
+			a {
+				box-sizing: border-box;
+				padding: 15px 0;
+				width: 100%;
+				display: block;
+				text-align: center;
+				
+				h4 {
+					font-size: 11px;
+					display: inline;
+					padding-right: 10px;
+					color: $color_text_secondary;
+				}
+			}
 		}
 	}
 	
@@ -513,6 +573,10 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	
 	}
 	
+	#next_product {
+		width: 100%;
+	}
+	
 	.navigation.mobile {
 		 
 		li {
@@ -527,15 +591,14 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 		#branding {	
 	
 			 a {
-			 	margin-top: 155px;
+				margin-bottom: 35px;			 	
 				font: {
 					size: 30px;
 				}
 				
 				&.wrap {
-					margin-top: 60px;			
+					margin-bottom: 35px;
 					font-size: 24px;
-					margin-top: inherit;
 				}
 			}
 		}
@@ -557,11 +620,97 @@ screen and (max-device-width: 560px) and (orientation: landscape) {
 	#contact {
 		
 		#content {
-			margin: 5px 0 125px;
+			margin: -5px 0 125px;
 
 			.structure {
 				width: 90%;			
 			}
 		}
-	}			
+	}
+	
+	#cart {
+		
+		#content {
+			margin-top: 0;
+		}
+		
+		#cart-form {
+			width: 100%;
+			
+			#item { margin-left: 0; }
+			#quantity { margin-left: 46.2%; }
+			#price { margin-left: 8%; }			
+			
+			.item_thumb {
+				display: none;
+			}
+			
+			.item_name {
+				margin-left: 0;
+				width: 47%;		
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;					
+			}
+			
+			.item_qty {
+				margin-left: 8.8%;
+				width: 10%;
+				
+				input {
+					background: darken($color_background, 10%);
+				}
+			}
+			
+			.item_price {
+				margin: 21px 0 0 4.6%;
+			}			
+			
+			.remove_item {
+				top: 25px;			
+			}
+		}
+	
+		#cart_total {
+			padding-top: 38px;
+			margin-bottom: 37px;
+			
+			a {
+				width: 40%;
+				margin-left: 0;
+			}
+
+			span.total {
+				margin-left: 17.4%;
+			}
+							
+		}
+	}
+	
+	#home_gallery {
+		
+		.slides li a {
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			background: rgba(0,0,0, .75);
+
+		
+			h2 {
+				font-size: 16px;
+				border-bottom: none;
+			}
+		
+			h3 {
+				margin-top: -8px;
+				border-top: none;
+				@include header(12px);
+				
+				.raq {
+				  @include raquo(2px, 26px, #ffffff);
+					float: none;		
+				}
+			}
+		}
+	}				
 }

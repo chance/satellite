@@ -63,16 +63,19 @@
 		&:hover a, 
 		&.selected a {
 			color: $color_text;
-		}
+		}		
+	}	
+	
+	.three_controllers {
 			
-		&#controller_inventory {
+		#controller_inventory {
 			text-align: center;
 		}
 			
-		&#controller_share {
+		#controller_share {
 			text-align: right;
-		}			
-	}	
+		}		
+	}
 }
 	
 #product_detail {

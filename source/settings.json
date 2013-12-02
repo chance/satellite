@@ -79,9 +79,9 @@
     },
 		{
       "variable": "banner_message",
-      "label": "Banner message",
+      "label": "Announcement banner",
       "type": "text",
-      "description": "Shows promotional banner on products page"
+      "description": "Shows promotional announcement on products page"
     },     
     {
       "variable": "show_inventory_bars",

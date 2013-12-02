@@ -26,14 +26,16 @@
       {% endcase %}
 		</header>
 		<nav id="detail_controller">
-			<ul>
+			<ul {% if product.description != blank & if theme.show_inventory_bars & if theme.show_share_buttons %}class="three_controllers"{% endif %}>
 				{% if product.description != blank %}
 				<li id="controller_description" data="product_description" class="selected"><a href="" title="">Details</a></li>
 				{% endif %}
 				{% if theme.show_inventory_bars %}
 				<li id="controller_inventory" data="product_inventory"><a href="" title="">Inventory</a></li>
 				{% endif %}
+				{% if theme.show_share_buttons %}
 				<li id="controller_share" data="product_share"><a href="" title="">Share</a></li>							
+				{% endif %}
 			</ul>
 		</nav>
 		<div id="product_detail">
